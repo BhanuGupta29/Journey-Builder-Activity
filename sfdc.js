@@ -19,9 +19,9 @@ const jsforce = require('jsforce');
  */
 class ServiceCloud {
 	constructor (options) {
-		this.username = options.username;
-		this.password = options.password;
-		this.loginUrl = options.loginUrl;
+		this.username = 'bhanugupta@salesforcedev.com';
+		this.password = 'Esolutions@1234';
+		this.loginUrl = 'https://login.salesforce.com/';
 		this.conn = {};
 	}
 
@@ -77,7 +77,7 @@ class ServiceCloud {
 		if (!/^([a-zA-Z0-9]{15}|[a-zA-Z0-9]{18})$/g.test(id)) return cb(new Error('Invalid Salesforce-Id given.'));
 
 		const self = this;
-		const query = 'SELECT <INSERT NAME OF FIELD HERE> FROM <INSERT YOUR OBJECT HERE> WHERE Id = \'' + id + '\'';
+		const query = 'SELECT id,Name FROM Contact WHERE Id = \'' + id + '\'';
 
 		// Login if necessary
 		self._login((e) => {
